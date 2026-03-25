@@ -1,20 +1,65 @@
-.header {
-    background-color: var(--corPrincipal);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 180px 0 40px;
-    margin-bottom: 80px;
+.card {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 24px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .avatar {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    border: 2px solid var(--corSecundaria);
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 16px;
 }
 
 .name {
-    font-size: 18px;
-    color: var(--corSecundaria);
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.username {
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.bio {
+  font-size: 14px;
+  margin-bottom: 16px;
+  color: #444;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.links img {
+  width: 28px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.links img:hover {
+  transform: scale(1.15);
+}
+
+.card {
+  background: #ffffff;
+  color: #000;
+}
+
+.dark .card {
+  background: #161b22;
+  color: #fff;
 }
