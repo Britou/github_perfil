@@ -1,59 +1,29 @@
-import { useState, useEffect } from "react"
+import { useState } from "react";
+import styles from "./Formulario.module.css";
 
-const Formulario = () => {
-    const [materiaA, setMateriaA] = useState(0);
-    const [materiaB, setMateriaB] = useState(0);
-    const [materiaC, setMateriaC] = useState(0);
-    const [nome, setNome] = useState('');
+const Formulario = ({ onBuscar }) => {
+const [username, setUsername] = useState("");
 
-    useEffect(() => {
-        console.log('O componente foi iniciado');
+const handleSubmit = (e) => {
+    e.preventDefault();
 
-        return () => {
-            console.log('O componente foi finalizado');
-        }
-    }, [])
+    if (!username.trim()) return;
 
-    useEffect(() => {
-        console.log('O nome mudou');
-    }, [nome])
+    onBuscar(username);
+};
 
-    useEffect(() => {
-        console.log('O Estado Mudou');
-    }, [materiaA, materiaB, materiaC])
-    
-    const alteraNome = (evento) => {
-       // setNome(evento.target.value);
-        setNome(estadoAnterior => {
-            console.log(estadoAnterior);
-            return evento.target.value
-        })
-    }
+return (
+    <form className={styles.formContainer} onSubmit={handleSubmit}>
+    <input
+        type="text"
+        placeholder="Digite um usuário do GitHub"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+    />
 
-    const renderizaResultado = () => {
-        const soma = materiaA + materiaB + materiaC;
-        const media = soma / 3;
+    <button type="submit">Buscar</button>
+    </form>
+);
+};
 
-        
-
-        if (media >= 7) {
-            return <p>Olá {nome}, vocé foi Aprovado</p>
-        } else {
-            return <p>Olá {nome}, vocé foi Reprovado</p>
-        }
-    }
-
-    return (
-        <form>
-            {[1, 2, 3, 4, 5].map((item => <li key={teste}>{item}</li>))}
-
-            <input type="text" placeholder="Seu nome" onChange={alteraNome} />
-            <input type="number" placeholder="Nota matéria A" onChange={({ target }) => setMateriaA(parseInt(target.value))} />
-            <input type="number" placeholder="Nota matéria B" onChange={evento => setMateriaB(parseInt(evento.target.value))} />
-            <input type="number" placeholder="Nota matéria C" onChange={evento => setMateriaC(parseInt(evento.target.value))} />
-            {renderizaResultado()}
-        </form>
-    )
-}
-
-export default Formulario
+export default Formulario;
