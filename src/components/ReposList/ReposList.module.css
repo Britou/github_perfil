@@ -1,26 +1,59 @@
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  list-style: none;
+  padding: 0;
 }
 
-.listItem {
-    list-style: none;
-    padding: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+.card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.2s;
 }
 
-.itemName b, .itemLanguage b {
-    margin-right: 8px;
+.card:hover {
+  transform: translateY(-4px);
 }
 
-.itemLink {  
-    display: block;
-    background-color: var(--corPrincipal);
-    color: var(--corSecundaria);
-    text-align: center;
-    font-weight: bold;
-    margin-top: 8px;
-    padding: 8px;
-    text-decoration: none;
+.card h3 {
+  margin-bottom: 8px;
+  color: #000;
+}
+
+:global(body.dark) .card h3 {
+  color: #000000;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.card a {
+  text-decoration: none;
+  color: #0366d6;
+  font-weight: bold;
+}
+
+.card {
+  background: #fff;
+}
+
+.dark .card {
+  background: #161b22;
+  color: #fff;
 }
